@@ -2,9 +2,6 @@
 //  DraggableCardView.swift
 //  CardView
 //
-//  Created by 谷田　裕樹 on 2016/02/17.
-//  Copyright © 2016年 谷田　裕樹. All rights reserved.
-//
 
 import UIKit
 
@@ -18,4 +15,9 @@ class DraggableCardView: UIView {
     }
     */
 
+    class func instance() -> DraggableCardView {
+        return UINib(nibName: "CardView", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! DraggableCardView
+    }
+    
+    
 }

@@ -13,7 +13,9 @@ protocol DraggableCardViewDelegate {
 class DraggableCardView: UIView {
 
     var delegate: DraggableCardViewDelegate?
-    var infomation: UILabel = UILabel()
+    var information: UILabel = UILabel()
+    
+    var panGestureRecognizer: UIPanGestureRecognizer?
     
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -34,10 +36,16 @@ class DraggableCardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
-        infomation = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
-        infomation.text = "no info given"
-        infomation.textAlignment = NSTextAlignment.Center
-        infomation.textColor = UIColor.blackColor()
+        information = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
+        information.text = "no info given"
+        information.textAlignment = NSTextAlignment.Center
+        information.textColor = UIColor.blackColor()
+        
+        self.backgroundColor = UIColor.blackColor()
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("beginDragged"))
+        
+        self.addGestureRecognizer(panGestureRecognizer!)
+        self.addSubview(information)
     }
     
     func setupView() {

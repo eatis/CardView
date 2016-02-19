@@ -52,5 +52,37 @@ class DraggableCardView: UIView {
     
     func setupView() {
         // setup code
+        self.layer.cornerRadius = 4
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSizeMake(1, 1)
+    }
+    
+    func beginDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        
+    }
+    
+    func updateOverlay(distance: CGFloat) {
+        
+    }
+    
+    func afterSwipeAction(xFromCenter: CGFloat) {
+        
+    }
+    
+    func rightAction() {
+        
+    }
+    
+    func leftAction() {
+        
+    }
+    
+    func rightClickAction() {
+        
+    }
+    
+    func leftClickAction() {
+        
     }
 }

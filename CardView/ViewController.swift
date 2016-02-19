@@ -28,10 +28,12 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     
     
     func cardSwipedRight(card: UIView) {
+        // some code
         <#code#>
     }
     
     func cardSwipedLeft(card: UIView) {
+        // some code
         <#code#>
     }
 

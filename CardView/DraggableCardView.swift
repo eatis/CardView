@@ -24,10 +24,6 @@ class DraggableCardView: UIView {
         // Drawing code
     }
     */
-
-    class func instance() -> DraggableCardView {
-        return UINib(nibName: "CardView", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! DraggableCardView
-    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,6 +31,8 @@ class DraggableCardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        NSBundle.mainBundle().loadNibNamed("CardView", owner: self, options: nil)
+
         self.setupView()
         information = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
         information.text = "no info given"

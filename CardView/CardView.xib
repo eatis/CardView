@@ -10,7 +10,7 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DraggableCardView" customModule="CardView" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.68637457643723643" green="0.64627238143776766" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="228" y="360"/>
         </view>
     </objects>

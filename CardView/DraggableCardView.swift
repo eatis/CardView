@@ -14,7 +14,7 @@ class DraggableCardView: UIView {
 
     var delegate: DraggableCardViewDelegate?
     var information: UILabel = UILabel()
-    
+    var overlayView: OverlayView?
     var panGestureRecognizer: UIPanGestureRecognizer?
     
     /*
@@ -40,10 +40,14 @@ class DraggableCardView: UIView {
         information.textColor = UIColor.blackColor()
         
         self.backgroundColor = UIColor.blackColor()
-        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("beginDragged"))
         
+        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("beginDragged"))
         self.addGestureRecognizer(panGestureRecognizer!)
         self.addSubview(information)
+        
+        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
+        overlayView!.alpha = 0
+        self.addSubview(overlayView!)
     }
     
     func setupView() {

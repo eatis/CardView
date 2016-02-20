@@ -2,9 +2,6 @@
 //  OverlayView.swift
 //  CardView
 //
-//  Created by 谷田　裕樹 on 2016/02/19.
-//  Copyright © 2016年 谷田　裕樹. All rights reserved.
-//
 
 import UIKit
 
@@ -23,7 +20,7 @@ class OverlayView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.blackColor()
         imageView = UIImageView(image: UIImage(named: "noButton"))
         self.addSubview(imageView)
     }
@@ -33,11 +30,9 @@ class OverlayView: UIView {
         
         print(mode)
         if mode == GGOverlayMode.Left {
-            // ここをLabelにする
-            imageView.image = UIImage(named: "noButton")
+            imageView.image = UIImage(named: "leftSsButton")
         } else {
-            // ここをLabelにする
-            imageView.image = UIImage(named: "yesButton")
+            imageView.image = UIImage(named: "rightSsButton")
         }
     }
     

@@ -47,8 +47,7 @@ class DraggableCardView: UIView {
         super.init(frame: frame)
         NSBundle.mainBundle().loadNibNamed("CardView", owner: self, options: nil)
 
-        draggableCardView.frame = frame
-        addSubview(draggableCardView)
+        draggableCardView.frame = self.bounds
         
         information = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
         information.text = "no info given"
@@ -65,8 +64,8 @@ class DraggableCardView: UIView {
         overlayView!.alpha = 0
         draggableCardView.addSubview(overlayView!)
         
-        NSLog("CardView")
         self.setupView()
+        addSubview(draggableCardView)
     }
     
     func setupView() {

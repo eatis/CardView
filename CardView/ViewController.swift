@@ -72,7 +72,7 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
         let draggableView: DraggableCardView = DraggableCardView(frame:CGRectMake(30, 100, CARD_WIDTH, CARD_HEIGHT))
         layoutCardView(draggableView)
         draggableView.information.text = exampleCardLabels.objectAtIndex(index) as? String
-        draggableView.backgroundColor = UIColor.whiteColor()
+        //draggableView.backgroundColor = UIColor.whiteColor()
         draggableView.delegate = self
         return draggableView
     }

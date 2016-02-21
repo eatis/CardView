@@ -20,8 +20,6 @@ class OverlayView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.blackColor()
-        imageView = UIImageView(image: UIImage(named: "noButton"))
         self.addSubview(imageView)
     }
     
@@ -30,9 +28,9 @@ class OverlayView: UIView {
         
         print(mode)
         if mode == GGOverlayMode.Left {
-            imageView.image = UIImage(named: "leftSsButton")
+            imageView.image = UIImage(named: "noButton")
         } else {
-            imageView.image = UIImage(named: "rightSsButton")
+            imageView.image = UIImage(named: "yesButton")
         }
     }
     

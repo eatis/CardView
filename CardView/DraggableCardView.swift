@@ -28,6 +28,9 @@ class DraggableCardView: UIView {
     var xFromCenter: CGFloat = CGFloat()
     var yFromCenter: CGFloat = CGFloat()
     
+    
+    @IBOutlet var draggableCardView: DraggableCardView!
+    
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -44,29 +47,34 @@ class DraggableCardView: UIView {
         super.init(frame: frame)
         NSBundle.mainBundle().loadNibNamed("CardView", owner: self, options: nil)
 
-        self.setupView()
+        draggableCardView.frame = frame
+        addSubview(draggableCardView)
+        
         information = UILabel(frame: CGRectMake(0, 50, self.frame.size.width, 100))
         information.text = "no info given"
         information.textAlignment = NSTextAlignment.Center
         information.textColor = UIColor.blackColor()
         
-        self.backgroundColor = UIColor.blackColor()
+        //self.backgroundColor = UIColor.blackColor()
         
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("beingDragged:"))
-        self.addGestureRecognizer(panGestureRecognizer!)
-        self.addSubview(information)
-        
+        draggableCardView.addGestureRecognizer(panGestureRecognizer!)
+        draggableCardView.addSubview(information)
+      
         overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
         overlayView!.alpha = 0
-        self.addSubview(overlayView!)
+        draggableCardView.addSubview(overlayView!)
+        
+        NSLog("CardView")
+        self.setupView()
     }
     
     func setupView() {
         // setup code
-        self.layer.cornerRadius = 4
-        self.layer.shadowRadius = 3
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = CGSizeMake(1, 1)
+        draggableCardView.layer.cornerRadius = 4
+        draggableCardView.layer.shadowRadius = 3
+        draggableCardView.layer.shadowOpacity = 0.2
+        draggableCardView.layer.shadowOffset = CGSizeMake(1, 1)
     }
     
     func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
@@ -166,6 +174,6 @@ class DraggableCardView: UIView {
                 self.removeFromSuperview()
         })
         delegate?.cardSwipedLeft(self)
-        NSLog("YES")
+        NSLog("No")
     }
 }

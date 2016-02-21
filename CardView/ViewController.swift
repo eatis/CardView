@@ -23,6 +23,7 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
         
         // ここでCardViewの生成...
         exampleCardLabels = ["hoge1", "hoge2", "hoge3", "hoge4", "hoge5"]
@@ -42,9 +43,6 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     }
 
     //==========================================================================
-    
-    
-    
     
 
     

@@ -24,23 +24,11 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // ここでCardViewの生成...
         exampleCardLabels = ["hoge1", "hoge2", "hoge3", "hoge4", "hoge5"]
         loadedCards = []
         cardsLoadedIndex = 0
         self.loadCards()
-        
-        
-        
-        // こっちでもCardViewの生成...
-        // Do any additional setup after loading the view, typically from a nib.
-        let draggableCardView: DraggableCardView = DraggableCardView(frame: CGRectMake(30, 100, CARD_WIDTH, CARD_HEIGHT))
-        layoutCardView(draggableCardView)
-        draggableCardView.information.text = "Example Card"
-        draggableCardView.backgroundColor = UIColor.brownColor()
-        draggableCardView.delegate = self
-        self.view.addSubview(draggableCardView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,15 +40,6 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
         cardView.center.x = self.view.center.x
         cardView.center.y = self.view.center.y
     }
-    
-    
-//    func cardSwipedRight(card: UIView) {
-//        // some code
-//    }
-//    
-//    func cardSwipedLeft(card: UIView) {
-//        // some code
-//    }
 
     //==========================================================================
     
@@ -93,6 +72,7 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     
     func createDraggableViewWithDataAtIndex(index: Int) -> DraggableCardView {
         let draggableView: DraggableCardView = DraggableCardView(frame:CGRectMake(30, 100, CARD_WIDTH, CARD_HEIGHT))
+        layoutCardView(draggableView)
         draggableView.information.text = exampleCardLabels.objectAtIndex(index) as? String
         draggableView.backgroundColor = UIColor.whiteColor()
         draggableView.delegate = self

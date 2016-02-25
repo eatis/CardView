@@ -9,12 +9,14 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     var cardsLoadedIndex:Int = Int()
     var loadedCards: NSMutableArray = NSMutableArray()
     
-    var menuButton: UIButton = UIButton()
-    var messageButton: UIButton = UIButton()
+    //var menuButton: UIButton = UIButton()
+    //var messageButton: UIButton = UIButton()
     //var xButton: UIButton = UIButton()
     //var checkButton: UIButton = UIButton()
     @IBOutlet weak var xButton: UIButton!
     @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var messageButton: UIButton!
     
     let MAX_BUFFER_SIZE: Int = 2
     let CARD_HEIGHT: CGFloat = 440
@@ -53,16 +55,16 @@ class ViewController: UIViewController, DraggableCardViewDelegate {
     
     func setupView() {
         self.view.backgroundColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1.0);
-        menuButton = UIButton(frame:CGRectMake(17,34,22,15))
-        messageButton = UIButton(frame:CGRectMake(284,34,18,18))
+        //menuButton = UIButton(frame:CGRectMake(17,34,22,15))
+        //messageButton = UIButton(frame:CGRectMake(284,34,18,18))
         //xButton = UIButton(frame:CGRectMake(60,485,59,59))
         //checkButton = UIButton(frame:CGRectMake(200,485,59,59));
-        let menuButtonImage = UIImage(named: "menuButton")
-        let messageButtonImage = UIImage(named: "messageButton")
+        //let menuButtonImage = UIImage(named: "menuButton")
+        //let messageButtonImage = UIImage(named: "messageButton")
         //let xButtonImage = UIImage(named: "xButton")
         //let checkButtonImage = UIImage(named: "checkButton")
-        menuButton.setImage(menuButtonImage, forState: UIControlState.Normal)
-        messageButton.setImage(messageButtonImage, forState: UIControlState.Normal)
+        //menuButton.setImage(menuButtonImage, forState: UIControlState.Normal)
+        //messageButton.setImage(messageButtonImage, forState: UIControlState.Normal)
         //xButton.setImage(xButtonImage, forState: UIControlState.Normal)
         //checkButton.setImage(checkButtonImage, forState: UIControlState.Normal)
         xButton.addTarget(self, action: "swipeLeft", forControlEvents: .TouchUpInside)

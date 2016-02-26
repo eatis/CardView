@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DraggableCardView" customModule="CardView" customModuleProvider="target">
@@ -21,28 +21,17 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CardView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQo-Kg-hFB">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.49724373681120404" green="0.50584724086811883" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="neb-GZ-FEm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="GXr-mR-zau"/>
                 <constraint firstItem="neb-GZ-FEm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="M2n-Bf-Si4"/>
-                <constraint firstAttribute="bottom" secondItem="cQo-Kg-hFB" secondAttribute="bottom" constant="8" id="NsR-uN-nDt"/>
-                <constraint firstAttribute="trailing" secondItem="cQo-Kg-hFB" secondAttribute="trailing" constant="8" id="hS6-Tf-Qyx"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="neb-GZ-FEm"/>
-                    <exclude reference="cQo-Kg-hFB"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="NsR-uN-nDt"/>
-                    <exclude reference="hS6-Tf-Qyx"/>
                     <exclude reference="GXr-mR-zau"/>
                     <exclude reference="M2n-Bf-Si4"/>
                 </mask>
@@ -50,11 +39,8 @@
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="neb-GZ-FEm"/>
-                    <include reference="cQo-Kg-hFB"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="NsR-uN-nDt"/>
-                    <include reference="hS6-Tf-Qyx"/>
                     <include reference="GXr-mR-zau"/>
                     <include reference="M2n-Bf-Si4"/>
                 </mask>

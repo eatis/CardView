@@ -122,6 +122,7 @@ class DraggableCardView: UIView {
         } else if xFromCenter < CGFloat(-ACTION_MARGIN) {
             self.leftAction()
         } else {
+            // TODO:後程修正
             UIView.animateWithDuration(0.3, animations: {
                 self.center = self.originalPoint
                 self.transform = CGAffineTransformMakeRotation(0)
@@ -131,6 +132,7 @@ class DraggableCardView: UIView {
     }
     
     func rightAction() {
+        // TODO:後程修正
         let finishPoint: CGPoint = CGPointMake(500, 2 * yFromCenter + self.originalPoint.y)
         UIView.animateWithDuration(0.3, animations: {
             self.center = finishPoint
@@ -142,6 +144,7 @@ class DraggableCardView: UIView {
     }
     
     func leftAction() {
+        // TODO:後程修正
         let finishPoint: CGPoint = CGPointMake(-500, 2 * yFromCenter + self.originalPoint.y)
         UIView.animateWithDuration(0.3, animations: {
             self.center = finishPoint
@@ -153,6 +156,7 @@ class DraggableCardView: UIView {
     }
     
     func rightClickAction() {
+        // TODO:後程修正
         let finishPoint: CGPoint = CGPointMake(600, self.center.y)
         UIView.animateWithDuration(0.3, animations: {
             self.center = finishPoint
@@ -165,6 +169,7 @@ class DraggableCardView: UIView {
     }
     
     func leftClickAction() {
+        // TODO:後程修正
         let finishPoint: CGPoint = CGPointMake(-600, self.center.y)
         UIView.animateWithDuration(0.3, animations: {
             self.center = finishPoint

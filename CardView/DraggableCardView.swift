@@ -141,6 +141,31 @@ class DraggableCardView: UIView {
         })
         delegate?.cardSwipedRight(self)
         NSLog("Yes")
+        
+        
+
+        // TOFO:後で見る
+//        xDistanceFromCenter = gestureRecognizer.translationInView(self).x
+//        yDistanceFromCenter = gestureRecognizer.translationInView(self).y
+//
+//        
+//        
+//        let rotationStrength = min(xFromCenter! / self.frame.size.width, rotationMax)
+//        let rotationAngle = animationDirection! * defaultRotationAngle * rotationStrength
+//        let scaleStrength = 1 - ((1 - scaleMin) * fabs(rotationStrength))
+//        let scale = max(scaleStrength, scaleMin)
+//        
+//        layer.rasterizationScale = scale * UIScreen.mainScreen().scale
+//        
+//        let transform = CGAffineTransformMakeRotation(rotationAngle)
+//        let scaleTransform = CGAffineTransformScale(transform, scale, scale)
+//        
+//        self.transform = scaleTransform
+//        center = CGPoint(x: originalLocation!.x + xDistanceFromCenter!, y: originalLocation!.y + yFromCenter!)
+//        
+//        updateOverlayWithFinishPercent(xFromCenter! / frame.size.width)
+//        //100% - for proportion
+//        delegate?.cardDraggedWithFinishPercent(self, percent: min(fabs(xFromCenter * 100 / frame.size.width), 100))
     }
     
     func leftAction() {

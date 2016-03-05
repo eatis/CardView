@@ -10,4 +10,12 @@
 
 # Overlay View の作成
 
+Animation
+
+アニメーションを扱うクラスはいくつかある。
+CAAnimation, CAKeyFrameAnimation, CABasicAnimationなど。
+その中で基本となるのがCABasicAnimation。
+
+
+
 # ViewController の作成

@@ -16,11 +16,11 @@ Animation
 CAAnimation, CAKeyFrameAnimation, CABasicAnimationなど。
 その中で基本となるのがCABasicAnimation。
 
-- プロパティを指定し、CABasicAnimationクラスのオブジェクト作成
-- 初期値を指定
-- 終了時の値を指定
-- 時間を指定
-- アニメーションをlayerに追加
+1. プロパティを指定し、CABasicAnimationクラスのオブジェクト作成
+2. 初期値を指定
+3. 終了時の値を指定
+4. 時間を指定
+5. アニメーションをlayerに追加
 
 
 # ViewController の作成

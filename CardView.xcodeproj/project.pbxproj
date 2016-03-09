@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA569AB71C9042C40024A72F /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA569AB61C9042C40024A72F /* AnimationViewController.swift */; };
 		AAD1E4071C74718A00C17CA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD1E4061C74718A00C17CA0 /* AppDelegate.swift */; };
 		AAD1E4091C74718A00C17CA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD1E4081C74718A00C17CA0 /* ViewController.swift */; };
 		AAD1E40C1C74718A00C17CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD1E40A1C74718A00C17CA0 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA569AB61C9042C40024A72F /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		AAD1E4031C74718A00C17CA0 /* CardView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD1E4061C74718A00C17CA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAD1E4081C74718A00C17CA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				AAD1E43A1C7474F500C17CA0 /* DraggableCardView.swift */,
 				AAE1BD781C77249000172BB1 /* OverlayView.swift */,
 				AAD1E43C1C74754200C17CA0 /* CardView.xib */,
+				AA569AB61C9042C40024A72F /* AnimationViewController.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				AAD1E4091C74718A00C17CA0 /* ViewController.swift in Sources */,
 				AAE1BD791C77249000172BB1 /* OverlayView.swift in Sources */,
+				AA569AB71C9042C40024A72F /* AnimationViewController.swift in Sources */,
 				AAD1E43B1C7474F500C17CA0 /* DraggableCardView.swift in Sources */,
 				AAD1E4071C74718A00C17CA0 /* AppDelegate.swift in Sources */,
 			);

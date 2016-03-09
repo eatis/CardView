@@ -144,7 +144,7 @@ class DraggableCardView: UIView {
         
         
 
-        // TOFO:後で見る
+        // TODO:後で見る
 //        xDistanceFromCenter = gestureRecognizer.translationInView(self).x
 //        yDistanceFromCenter = gestureRecognizer.translationInView(self).y
 //

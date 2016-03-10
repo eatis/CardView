@@ -7,29 +7,36 @@ import UIKit
 
 class AnimationViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        let testView = UIView(frame: CGRectMake(200, 200, 100, 100))
-        testView.backgroundColor = UIColor.greenColor()
-        self.view.addSubview(testView)
+    var testView:UIView!
+    
+    @IBAction func showAnimationView(sender: AnyObject) {
         
         // CAKeyframeAnimationを使えばkeyframe間を補完してアニメーションしてくれます（3つ以上の値を補完するアニメーション）
         let transformAnim = CAKeyframeAnimation(keyPath:"transform")
         // 配列で...
         transformAnim.values = [NSValue(CATransform3D: CATransform3DMakeRotation(3 * CGFloat(M_PI/180), 0, 0, -1)),
-                                NSValue(CATransform3D: CATransform3DConcat(CATransform3DMakeScale(1.5, 1.5, 1), CATransform3DMakeRotation(3 * CGFloat(M_PI/180), 0, 0, 1))),
-                                NSValue(CATransform3D: CATransform3DMakeScale(1.5, 1.5, 1)),
-                                NSValue(CATransform3D: CATransform3DConcat(CATransform3DMakeScale(1.5, 1.5, 1), CATransform3DMakeRotation(-8 * CGFloat(M_PI/180), 0, 0, 1)))]
+            NSValue(CATransform3D: CATransform3DConcat(CATransform3DMakeScale(1.5, 1.5, 1), CATransform3DMakeRotation(3 * CGFloat(M_PI/180), 0, 0, 1))),
+            NSValue(CATransform3D: CATransform3DMakeScale(1.5, 1.5, 1)),
+            NSValue(CATransform3D: CATransform3DConcat(CATransform3DMakeScale(1.5, 1.5, 1), CATransform3DMakeRotation(-8 * CGFloat(M_PI/180), 0, 0, 1)))]
         // 通過タイミング
         transformAnim.keyTimes       = [0, 0.349, 0.618, 1]
         // アニメーション時間
         transformAnim.duration       = 1
         
         // アニメーションの追加
-        testView.layer.addAnimation(transformAnim, forKey: "transform")
+        self.testView.layer.addAnimation(transformAnim, forKey: "transform")
+
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        let testView = UIView(frame: CGRectMake(200, 200, 100, 100))
+        testView.backgroundColor = UIColor.redColor()
+        self.view.addSubview(testView)
+        self.testView = testView
     }
     
     

@@ -7,8 +7,10 @@ import UIKit
 
 class AnimationViewController: UIViewController {
 
+    // Controller全体で操作する用
     var testView:UIView!
     
+    // Buttonを押した時用のアクション
     @IBAction func showAnimationView(sender: AnyObject) {
         
         // CAKeyframeAnimationを使えばkeyframe間を補完してアニメーションしてくれます（3つ以上の値を補完するアニメーション）

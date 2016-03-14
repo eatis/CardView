@@ -9,6 +9,9 @@ class AnimationViewController: UIViewController {
 
     var testView:UIView!
     
+    @IBOutlet weak var squeare: UIButton!
+    
+    
     @IBAction func showAnimationView(sender: AnyObject) {
         
         // CAKeyframeAnimationを使えばkeyframe間を補完してアニメーションしてくれます（3つ以上の値を補完するアニメーション）
@@ -26,8 +29,18 @@ class AnimationViewController: UIViewController {
         // アニメーションの追加
         self.testView.layer.addAnimation(transformAnim, forKey: "transform")
 
-        
+        // よくわからないがこれでアニメーションが出来る
+        UIView.animateAndChainWithDuration(0.25, delay: 0.0, options: .CurveEaseOut, animations: {
+            self.blueSquare.transform = CGAffineTransformMakeScale(0.8, 0.8)
+            }, completion: nil).animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.33, initialSpringVelocity: 0.0, options: nil, animations: {
+                
+                self.blueSquare.transform = CGAffineTransformConcat(
+                    CGAffineTransformMakeScale(1.33, 1.33),
+                    CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+                )
+            }, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +51,6 @@ class AnimationViewController: UIViewController {
         self.view.addSubview(testView)
         self.testView = testView
     }
-    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

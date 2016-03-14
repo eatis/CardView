@@ -208,34 +208,69 @@
                                     <action selector="showAnimationView:" destination="zBf-dy-HIt" eventType="touchUpInside" id="MOr-ro-Auf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlK-lW-itd">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.82563452432040674" green="0.53504800516589646" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="6Ng-68-A4u"/>
+                                    <constraint firstAttribute="height" constant="76" id="yXP-R8-7J5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="＋">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6Ng-68-A4u"/>
+                                        <exclude reference="yXP-R8-7J5"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6Ng-68-A4u"/>
+                                        <include reference="yXP-R8-7J5"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="Nad-Fe-uuN"/>
                             <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="O3h-Td-ubU" secondAttribute="bottom" constant="145" id="XNP-TU-pa6"/>
+                            <constraint firstItem="QlK-lW-itd" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="cva-Or-BxG"/>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="157" id="rQH-Vz-ywS"/>
+                            <constraint firstItem="O3h-Td-ubU" firstAttribute="top" secondItem="QlK-lW-itd" secondAttribute="bottom" constant="87" id="vIS-C3-ThN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="O3h-Td-ubU"/>
+                                <exclude reference="QlK-lW-itd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="cva-Or-BxG"/>
                                 <exclude reference="Nad-Fe-uuN"/>
                                 <exclude reference="rQH-Vz-ywS"/>
+                                <exclude reference="vIS-C3-ThN"/>
                                 <exclude reference="XNP-TU-pa6"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="O3h-Td-ubU"/>
+                                <include reference="QlK-lW-itd"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="cva-Or-BxG"/>
                                 <include reference="Nad-Fe-uuN"/>
                                 <include reference="rQH-Vz-ywS"/>
+                                <include reference="vIS-C3-ThN"/>
                                 <include reference="XNP-TU-pa6"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="squeare" destination="QlK-lW-itd" id="sDQ-C5-C0H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XN-yW-J5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

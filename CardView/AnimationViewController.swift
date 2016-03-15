@@ -28,7 +28,7 @@ class AnimationViewController: UIViewController {
         // アニメーションの追加
         self.testView.layer.addAnimation(transformAnim, forKey: "transform")
 
-        
+        // ここに新しくアニメーションを追加する
     }
     override func viewDidLoad() {
         super.viewDidLoad()

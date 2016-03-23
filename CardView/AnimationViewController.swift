@@ -8,6 +8,7 @@ import UIKit
 class AnimationViewController: UIViewController {
 
     var testView:UIView!
+    var alphaValue:CGFloat = 0.0
     
     @IBOutlet weak var squeare: UIButton!
     
@@ -28,19 +29,16 @@ class AnimationViewController: UIViewController {
         
         // アニメーションの追加
         self.testView.layer.addAnimation(transformAnim, forKey: "transform")
-
-        // よくわからないがこれでアニメーションが出来る
-        UIView.animateAndChainWithDuration(0.25, delay: 0.0, options: .CurveEaseOut, animations: {
-            self.blueSquare.transform = CGAffineTransformMakeScale(0.8, 0.8)
-            }, completion: nil).animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.33, initialSpringVelocity: 0.0, options: nil, animations: {
-                
-                self.blueSquare.transform = CGAffineTransformConcat(
-                    CGAffineTransformMakeScale(1.33, 1.33),
-                    CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-                )
-            }, completion: nil)
+        
+        UIView.animateWithDuration(1, animations: {
+            self.testView.alpha = self.alphaValue
+            }, completion: { finished in
+                //self.testView.removeFromSuperview()
+                self.alphaValue = self.alphaValue == 0.0 ? 1.0 : 0.0
+        })
+        print(self.alphaValue)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,6 +46,13 @@ class AnimationViewController: UIViewController {
         
         let testView = UIView(frame: CGRectMake(200, 200, 100, 100))
         testView.backgroundColor = UIColor.redColor()
+
+        testView.layer.shadowColor = UIColor.blackColor().CGColor
+        testView.layer.shadowOpacity = 0.75
+        testView.layer.shadowOffset = CGSizeMake(5, 10)
+        //testView.layer.shadowRadius = 10
+        // IMPORTANT FOR PERFORMANCE let myShadowPath = UIBezierPath(roundedRect: view.bounds, cornerRadius: 10) myLayer.shadowPath = myShadowPath.CGPath
+        
         self.view.addSubview(testView)
         self.testView = testView
     }

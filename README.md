@@ -24,3 +24,5 @@ CAAnimation, CAKeyFrameAnimation, CABasicAnimationなど。
 
 
 # ViewController の作成
+
+Custom View、Overlay View を管理する。

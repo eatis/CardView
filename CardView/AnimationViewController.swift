@@ -14,6 +14,9 @@ class AnimationViewController: UIViewController {
     @IBOutlet weak var squeare: UIButton!
     
     
+    var replicatorLayer:CAReplicatorLayer!
+    var circle:CALayer!
+    
     // Buttonを押した時用のアクション
     @IBAction func showAnimationView(sender: AnyObject) {
         
@@ -39,6 +42,18 @@ class AnimationViewController: UIViewController {
                 self.alphaValue = self.alphaValue == 0.0 ? 1.0 : 0.0
         })
         print(self.alphaValue)
+        
+        
+        
+        let animation = CABasicAnimation(keyPath: "position.y")
+        animation.toValue = self.view.center.y + 20
+        animation.duration = 0.5
+        animation.autoreverses = true
+        animation.repeatCount = .infinity
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        self.circle.addAnimation(animation, forKey: "animetion")
+        
+        self.replicatorLayer.instanceDelay = 0.1
     }
 
     override func viewDidLoad() {
@@ -57,6 +72,26 @@ class AnimationViewController: UIViewController {
         
         self.view.addSubview(testView)
         self.testView = testView
+        
+        
+        let replicatorLayer = CAReplicatorLayer()
+        replicatorLayer.frame = self.view.bounds
+        self.view.layer.addSublayer(replicatorLayer)
+        self.replicatorLayer = replicatorLayer
+        
+        let circle = CALayer()
+        circle.bounds = CGRect(x: 0, y: 0, width: 10, height: 10)
+        circle.position = self.view.center
+        circle.position.x -= 30
+        circle.backgroundColor = UIColor.blackColor().CGColor
+        circle.cornerRadius = 5
+        replicatorLayer.addSublayer(circle)
+        self.circle = circle
+        
+        replicatorLayer.instanceCount = 4
+        replicatorLayer.instanceTransform = CATransform3DMakeTranslation(20, 0.0, 0.0)
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {

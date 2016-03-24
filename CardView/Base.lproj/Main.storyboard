@@ -232,39 +232,66 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUX-Wn-SFv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem width="300" style="plain" id="yAZ-Ay-PQ7">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="4oQ-bS-xwp">
+                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem width="19" style="plain" systemItem="fixedSpace" id="3ve-Zk-GZc"/>
+                                    <barButtonItem style="plain" systemItem="fixedSpace" id="x5n-YN-kfH"/>
+                                    <barButtonItem title="Item" id="qGV-Ng-BQm"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="Nad-Fe-uuN"/>
                             <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="O3h-Td-ubU" secondAttribute="bottom" constant="145" id="XNP-TU-pa6"/>
                             <constraint firstItem="QlK-lW-itd" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="cva-Or-BxG"/>
+                            <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="MUX-Wn-SFv" secondAttribute="bottom" id="jIw-9o-RtQ"/>
+                            <constraint firstItem="MUX-Wn-SFv" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="-20" id="md4-eO-YaZ"/>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="157" id="rQH-Vz-ywS"/>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="top" secondItem="QlK-lW-itd" secondAttribute="bottom" constant="87" id="vIS-C3-ThN"/>
+                            <constraint firstItem="MUX-Wn-SFv" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="zy8-yz-5uX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="O3h-Td-ubU"/>
                                 <exclude reference="QlK-lW-itd"/>
+                                <exclude reference="MUX-Wn-SFv"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="cva-Or-BxG"/>
+                                <exclude reference="XNP-TU-pa6"/>
+                                <exclude reference="jIw-9o-RtQ"/>
                                 <exclude reference="Nad-Fe-uuN"/>
                                 <exclude reference="rQH-Vz-ywS"/>
                                 <exclude reference="vIS-C3-ThN"/>
-                                <exclude reference="XNP-TU-pa6"/>
+                                <exclude reference="cva-Or-BxG"/>
+                                <exclude reference="md4-eO-YaZ"/>
+                                <exclude reference="zy8-yz-5uX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="O3h-Td-ubU"/>
                                 <include reference="QlK-lW-itd"/>
+                                <include reference="MUX-Wn-SFv"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="cva-Or-BxG"/>
+                                <include reference="XNP-TU-pa6"/>
+                                <include reference="jIw-9o-RtQ"/>
                                 <include reference="Nad-Fe-uuN"/>
                                 <include reference="rQH-Vz-ywS"/>
                                 <include reference="vIS-C3-ThN"/>
-                                <include reference="XNP-TU-pa6"/>
+                                <include reference="cva-Or-BxG"/>
+                                <include reference="md4-eO-YaZ"/>
+                                <include reference="zy8-yz-5uX"/>
                             </mask>
                         </variation>
                     </view>

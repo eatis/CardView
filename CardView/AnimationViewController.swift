@@ -17,6 +17,8 @@ class AnimationViewController: UIViewController {
     var replicatorLayer:CAReplicatorLayer!
     var circle:CALayer!
     
+    var verticalLine:CAShapeLayer?
+    
     // Buttonを押した時用のアクション
     @IBAction func showAnimationView(sender: AnyObject) {
         
@@ -118,6 +120,18 @@ class AnimationViewController: UIViewController {
         circleView.layer.addSublayer(drawCircleIndicator(circleView.frame.width, strokeColor: UIColor(red:0.0,green:0.0,blue:0.0,alpha:1.0)))
         self.view.addSubview(circleView)
         
+        
+        
+        
+        
+        verticalLine = CAShapeLayer(layer: self.view.layer)
+        verticalLine?.lineWidth = 3.0
+        verticalLine?.path = getLinePathWithAmount(0.0, amountY: 100.0)
+        verticalLine?.strokeColor = UIColor.blackColor().CGColor
+        verticalLine?.fillColor = UIColor.clearColor().CGColor
+        
+        self.view.layer.addSublayer(verticalLine!)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -156,6 +170,7 @@ class AnimationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
     
     
     var countLabel:UILabel!
@@ -234,5 +249,22 @@ class AnimationViewController: UIViewController {
         } else {
             addCircleIndicatorAnimation(layer)
         }
+    }
+    
+    func getLinePathWithAmount(amountX:CGFloat, amountY:CGFloat) -> CGPathRef {
+        let w = UIScreen.mainScreen().bounds.width
+        let h = UIScreen.mainScreen().bounds.height
+        let centerY = 2 * h / 3
+        
+        let bezierPath = UIBezierPath()
+        
+        let topLeftPoint = CGPointMake(0, centerY)
+        let topMidPoint = CGPointMake(w / 2, centerY + amountY)
+        let topRightPoint = CGPointMake(w, centerY)
+        
+        bezierPath.moveToPoint(topLeftPoint)
+        bezierPath.addQuadCurveToPoint(topRightPoint, controlPoint: topMidPoint)
+        
+        return bezierPath.CGPath
     }
 }

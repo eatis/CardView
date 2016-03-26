@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zBf-dy-HIt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zBf-dy-HIt">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -203,105 +204,64 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-Td-ubU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="showAnimationView:" destination="zBf-dy-HIt" eventType="touchUpInside" id="MOr-ro-Auf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlK-lW-itd">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.82563452432040674" green="0.53504800516589646" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96741725898445263" green="0.61676420104703489" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="6Ng-68-A4u"/>
-                                    <constraint firstAttribute="height" constant="76" id="yXP-R8-7J5"/>
+                                    <constraint firstAttribute="width" secondItem="O3h-Td-ubU" secondAttribute="height" multiplier="1:1" id="7fh-sv-WCr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="＋">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="6Ng-68-A4u"/>
-                                        <exclude reference="yXP-R8-7J5"/>
+                                        <exclude reference="7fh-sv-WCr"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="6Ng-68-A4u"/>
-                                        <include reference="yXP-R8-7J5"/>
+                                        <include reference="7fh-sv-WCr"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="showAnimationView:" destination="zBf-dy-HIt" eventType="touchUpInside" id="MOr-ro-Auf"/>
+                                </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUX-Wn-SFv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem width="300" style="plain" id="yAZ-Ay-PQ7">
-                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="4oQ-bS-xwp">
-                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                    </barButtonItem>
-                                    <barButtonItem width="19" style="plain" systemItem="fixedSpace" id="3ve-Zk-GZc"/>
-                                    <barButtonItem style="plain" systemItem="fixedSpace" id="x5n-YN-kfH"/>
-                                    <barButtonItem title="Item" id="qGV-Ng-BQm"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="Nad-Fe-uuN"/>
-                            <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="O3h-Td-ubU" secondAttribute="bottom" constant="145" id="XNP-TU-pa6"/>
-                            <constraint firstItem="QlK-lW-itd" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="cva-Or-BxG"/>
-                            <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="MUX-Wn-SFv" secondAttribute="bottom" id="jIw-9o-RtQ"/>
-                            <constraint firstItem="MUX-Wn-SFv" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="-20" id="md4-eO-YaZ"/>
-                            <constraint firstItem="O3h-Td-ubU" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="157" id="rQH-Vz-ywS"/>
-                            <constraint firstItem="O3h-Td-ubU" firstAttribute="top" secondItem="QlK-lW-itd" secondAttribute="bottom" constant="87" id="vIS-C3-ThN"/>
-                            <constraint firstItem="MUX-Wn-SFv" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="zy8-yz-5uX"/>
+                            <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="O3h-Td-ubU" secondAttribute="bottom" constant="145" id="XNP-TU-pa6">
+                                <variation key="widthClass=compact" constant="82"/>
+                            </constraint>
+                            <constraint firstItem="O3h-Td-ubU" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="157" id="rQH-Vz-ywS">
+                                <variation key="widthClass=compact" constant="159"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="O3h-Td-ubU"/>
-                                <exclude reference="QlK-lW-itd"/>
-                                <exclude reference="MUX-Wn-SFv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="XNP-TU-pa6"/>
-                                <exclude reference="jIw-9o-RtQ"/>
                                 <exclude reference="Nad-Fe-uuN"/>
                                 <exclude reference="rQH-Vz-ywS"/>
-                                <exclude reference="vIS-C3-ThN"/>
-                                <exclude reference="cva-Or-BxG"/>
-                                <exclude reference="md4-eO-YaZ"/>
-                                <exclude reference="zy8-yz-5uX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="O3h-Td-ubU"/>
-                                <include reference="QlK-lW-itd"/>
-                                <include reference="MUX-Wn-SFv"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="XNP-TU-pa6"/>
-                                <include reference="jIw-9o-RtQ"/>
                                 <include reference="Nad-Fe-uuN"/>
                                 <include reference="rQH-Vz-ywS"/>
-                                <include reference="vIS-C3-ThN"/>
-                                <include reference="cva-Or-BxG"/>
-                                <include reference="md4-eO-YaZ"/>
-                                <include reference="zy8-yz-5uX"/>
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outlet property="squeare" destination="QlK-lW-itd" id="sDQ-C5-C0H"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XN-yW-J5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093.5" y="1193"/>
+            <point key="canvasLocation" x="1093.5" y="1110"/>
         </scene>
     </scenes>
     <resources>

@@ -22,6 +22,8 @@ CAAnimation, CAKeyFrameAnimation, CABasicAnimationなど。
 4. 時間を指定
 5. アニメーションをlayerに追加
 
+試しに色々アニメーションを追加
+
 
 # ViewController の作成
 

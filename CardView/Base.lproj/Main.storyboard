@@ -204,7 +204,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-Td-ubU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.96741725898445263" green="0.61676420104703489" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="O3h-Td-ubU" secondAttribute="height" multiplier="1:1" id="7fh-sv-WCr"/>
                                 </constraints>
@@ -229,10 +229,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="O3h-Td-ubU" secondAttribute="bottom" constant="82" id="JNM-74-JmS"/>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="centerX" secondItem="C8b-9g-O5j" secondAttribute="centerX" id="Nad-Fe-uuN"/>
-                            <constraint firstItem="rWY-7x-CeQ" firstAttribute="top" secondItem="O3h-Td-ubU" secondAttribute="bottom" constant="145" id="XNP-TU-pa6">
-                                <variation key="widthClass=compact" constant="82"/>
-                            </constraint>
                             <constraint firstItem="O3h-Td-ubU" firstAttribute="leading" secondItem="C8b-9g-O5j" secondAttribute="leadingMargin" constant="157" id="rQH-Vz-ywS">
                                 <variation key="widthClass=compact" constant="159"/>
                             </constraint>
@@ -242,7 +240,6 @@
                                 <exclude reference="O3h-Td-ubU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="XNP-TU-pa6"/>
                                 <exclude reference="Nad-Fe-uuN"/>
                                 <exclude reference="rQH-Vz-ywS"/>
                             </mask>
@@ -252,7 +249,6 @@
                                 <include reference="O3h-Td-ubU"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="XNP-TU-pa6"/>
                                 <include reference="Nad-Fe-uuN"/>
                                 <include reference="rQH-Vz-ywS"/>
                             </mask>

@@ -5,7 +5,7 @@
 
 import UIKit
 
-class AnimationViewController: UIViewController {
+class AnimationViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // Controller全体で操作する用
     var testView:UIView!
@@ -17,7 +17,7 @@ class AnimationViewController: UIViewController {
     var replicatorLayer:CAReplicatorLayer!
     var circle:CALayer!
     
-    var verticalLine:CAShapeLayer?
+    var verticalLine:CAShapeLayer!
     
     // Buttonを押した時用のアクション
     @IBAction func showAnimationView(sender: AnyObject) {
@@ -108,27 +108,27 @@ class AnimationViewController: UIViewController {
         
         
         // カウントダウン数値ラベル設定
-        countLabel = UILabel(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        countLabel = UILabel(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 100))
         countLabel.font = UIFont(name: "HelveticaNeue", size: 54)
         // 中心揃え
         countLabel.textAlignment = NSTextAlignment.Center
         countLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
         self.view.addSubview(countLabel)
         
-        circleView = UIView(frame : CGRectMake((self.view.frame.width/2)-100, (self.view.frame.height/2)-100, 200, 200))
+        circleView = UIView(frame : CGRectMake((self.view.frame.width/2)-100, (self.view.frame.height/2)-150, 200, 200))
         circleView.layer.addSublayer(drawCircleIndicator(circleView.frame.width, strokeColor: UIColor(red:0.0,green:0.0,blue:0.0,alpha:0.2)))
         circleView.layer.addSublayer(drawCircleIndicator(circleView.frame.width, strokeColor: UIColor(red:0.0,green:0.0,blue:0.0,alpha:1.0)))
         self.view.addSubview(circleView)
         
         
         
-        
+        addPanGesture()
         
         verticalLine = CAShapeLayer(layer: self.view.layer)
-        verticalLine?.lineWidth = 3.0
-        verticalLine?.path = getLinePathWithAmount(0.0, amountY: 100.0)
-        verticalLine?.strokeColor = UIColor.blackColor().CGColor
-        verticalLine?.fillColor = UIColor.clearColor().CGColor
+        verticalLine.lineWidth = 3.0
+        verticalLine.path = getLinePathWithAmount(100.0, amountY: 0.0)
+        verticalLine.strokeColor = UIColor.blackColor().CGColor
+        verticalLine.fillColor = UIColor.clearColor().CGColor
         
         self.view.layer.addSublayer(verticalLine!)
         
@@ -236,20 +236,23 @@ class AnimationViewController: UIViewController {
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        let layer:CAShapeLayer = anim.valueForKey("animationLayer") as! CAShapeLayer
-        countNum--
-        // 表示ラベルの更新
-        countLabel.text = String(countNum)
-        
-        if countNum <= 0 {
-            //次の画面へ遷移(navigationControllerの場合)
-            //let nextViewController:ViewController = ViewController()
-            //self.navigationController?.pushViewController(nextViewController, animated: false)
-            
-        } else {
-            addCircleIndicatorAnimation(layer)
-        }
+//        let layer:CAShapeLayer = anim.valueForKey("animationLayer") as! CAShapeLayer
+//        countNum--
+//        // 表示ラベルの更新
+//        countLabel.text = String(countNum)
+//        
+//        if countNum <= 0 {
+//            //次の画面へ遷移(navigationControllerの場合)
+//            //let nextViewController:ViewController = ViewController()
+//            //self.navigationController?.pushViewController(nextViewController, animated: false)
+//            
+//        } else {
+//            addCircleIndicatorAnimation(layer)
+//        }
     }
+    
+    
+    
     
     func getLinePathWithAmount(amountX:CGFloat, amountY:CGFloat) -> CGPathRef {
         let w = UIScreen.mainScreen().bounds.width
@@ -259,12 +262,56 @@ class AnimationViewController: UIViewController {
         let bezierPath = UIBezierPath()
         
         let topLeftPoint = CGPointMake(0, centerY)
-        let topMidPoint = CGPointMake(w / 2, centerY + amountY)
+        let topMidPoint = CGPointMake(/*amountX*/w/2, centerY + amountY)
         let topRightPoint = CGPointMake(w, centerY)
         
         bezierPath.moveToPoint(topLeftPoint)
         bezierPath.addQuadCurveToPoint(topRightPoint, controlPoint: topMidPoint)
         
         return bezierPath.CGPath
+    }
+    
+    func addPanGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: "dragg:")
+        panGesture.delegate = self
+        self.view.addGestureRecognizer(panGesture)
+    }
+    
+    func dragg(gestureRec:UIPanGestureRecognizer) {
+        let amountX = gestureRec.translationInView(self.view).x
+        let amountY = gestureRec.translationInView(self.view).y
+        self.verticalLine.path = self.getLinePathWithAmount(amountX, amountY: amountY)
+        
+        if gestureRec.state == UIGestureRecognizerState.Ended {
+            self.animateLineReturnFrom(amountX, positionY: amountY)
+        }
+    }
+    
+    func animateLineReturnFrom(positionX: CGFloat,positionY: CGFloat) {
+        // KeyframeAnimation
+        let bounce = CAKeyframeAnimation(keyPath: "path")
+        // kCAMediaTimingFunctionEaseIn（初めは遅く、後から速くなる）
+        bounce.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
+        // KeyPathの追加
+        let values = [
+            self.getLinePathWithAmount(positionX, amountY: positionY),
+            self.getLinePathWithAmount(-(positionX * 0.7), amountY: -(positionY * 0.7)),
+            self.getLinePathWithAmount(positionX * 0.4, amountY: positionY * 0.4),
+            self.getLinePathWithAmount(-(positionX * 0.3), amountY: -(positionY * 0.3)),
+            self.getLinePathWithAmount(positionX * 0.15, amountY: positionY * 0.15),
+            self.getLinePathWithAmount(0.0, amountY: 0.0)
+        ]
+        
+        bounce.values = values
+        bounce.duration = 0.9
+        // removedOnCompletionプロパティをfalseにし元の位置に！！
+        bounce.removedOnCompletion = false
+        // アニメーション終了後、アニメーション終了地点にフレームが残る
+        bounce.fillMode = kCAFillModeForwards
+        bounce.delegate = self
+        self.verticalLine.addAnimation(bounce, forKey: "return")
+        
+        print("gesture end")
     }
 }

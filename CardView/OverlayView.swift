@@ -24,9 +24,6 @@ class OverlayView: UIView {
     }
     
     func setMode(mode: GGOverlayMode) {
-        print("load setMode")
-        
-        print(mode)
         if mode == GGOverlayMode.Left {
             imageView.image = UIImage(named: "noButton")
         } else {

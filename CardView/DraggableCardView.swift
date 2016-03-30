@@ -83,16 +83,18 @@ class DraggableCardView: UIView {
         switch (gestureRecognizer.state) {
         case UIGestureRecognizerState.Began:
             self.originalPoint = self.center
+            print(self.originalPoint.y)
             break
         case UIGestureRecognizerState.Changed:
             let rotationStrength: CGFloat = min(xFromCenter / CGFloat(ROTATION_STRENGTH), CGFloat(ROTATION_MAX))
             let rotationAngle: CGFloat = CGFloat(ROTATION_ANGLE) * rotationStrength
             let scale: CGFloat = max(1 - CGFloat(fabsf(Float(rotationStrength))) / CGFloat(SCALE_STRENGTH), CGFloat(SCALE_MAX))
             self.center = CGPointMake(self.originalPoint.x + xFromCenter, self.originalPoint.y + yFromCenter)
-            let transform: CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
-            let scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
-            self.transform = scaleTransform
+//            let transform: CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
+//            let scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
+//            self.transform = scaleTransform
             self.updateOverlay(xFromCenter)
+            print(self.center)
             break
         case UIGestureRecognizerState.Ended:
             self.afterSwipeAction(xFromCenter)
@@ -133,51 +135,30 @@ class DraggableCardView: UIView {
     
     func rightAction() {
         // TODO:後程修正
-        let finishPoint: CGPoint = CGPointMake(500, 2 * yFromCenter + self.originalPoint.y)
+        let finishPoint: CGPoint = CGPointMake(500, self.center.y)
+        print(self.originalPoint.y)
+        print(finishPoint)
         UIView.animateWithDuration(0.3, animations: {
             self.center = finishPoint
             }, completion: { (value: Bool) in
                 self.removeFromSuperview()
         })
         delegate?.cardSwipedRight(self)
-        NSLog("Yes")
-        
-        
-
-        // TODO:後で見る
-//        xDistanceFromCenter = gestureRecognizer.translationInView(self).x
-//        yDistanceFromCenter = gestureRecognizer.translationInView(self).y
-//
-//        
-//        
-//        let rotationStrength = min(xFromCenter! / self.frame.size.width, rotationMax)
-//        let rotationAngle = animationDirection! * defaultRotationAngle * rotationStrength
-//        let scaleStrength = 1 - ((1 - scaleMin) * fabs(rotationStrength))
-//        let scale = max(scaleStrength, scaleMin)
-//        
-//        layer.rasterizationScale = scale * UIScreen.mainScreen().scale
-//        
-//        let transform = CGAffineTransformMakeRotation(rotationAngle)
-//        let scaleTransform = CGAffineTransformScale(transform, scale, scale)
-//        
-//        self.transform = scaleTransform
-//        center = CGPoint(x: originalLocation!.x + xDistanceFromCenter!, y: originalLocation!.y + yFromCenter!)
-//        
-//        updateOverlayWithFinishPercent(xFromCenter! / frame.size.width)
-//        //100% - for proportion
-//        delegate?.cardDraggedWithFinishPercent(self, percent: min(fabs(xFromCenter * 100 / frame.size.width), 100))
+        print("Yes")
     }
     
     func leftAction() {
         // TODO:後程修正
         let finishPoint: CGPoint = CGPointMake(-500, 2 * yFromCenter + self.originalPoint.y)
+        print(self.originalPoint.y)
+        print(finishPoint)
         UIView.animateWithDuration(0.3, animations: {
             self.center = finishPoint
             }, completion: { (value: Bool) in
                 self.removeFromSuperview()
         })
         delegate?.cardSwipedLeft(self)
-        NSLog("No")
+        print("No")
     }
     
     func rightClickAction() {
@@ -190,7 +171,7 @@ class DraggableCardView: UIView {
                 self.removeFromSuperview()
         })
         delegate?.cardSwipedRight(self)
-        NSLog("YES")
+        print("YES")
     }
     
     func leftClickAction() {
@@ -203,6 +184,6 @@ class DraggableCardView: UIView {
                 self.removeFromSuperview()
         })
         delegate?.cardSwipedLeft(self)
-        NSLog("No")
+        print("No")
     }
 }

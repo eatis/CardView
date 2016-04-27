@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AA569AB71C9042C40024A72F /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA569AB61C9042C40024A72F /* AnimationViewController.swift */; };
+		AAA007A21CBE496B0023DD16 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA007A11CBE496B0023DD16 /* Task.swift */; };
+		AAA007A41CBE4A3D0023DD16 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA007A31CBE4A3D0023DD16 /* CustomCell.swift */; };
+		AAA007A61CBE4C5F0023DD16 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA007A51CBE4C5F0023DD16 /* TaskViewController.swift */; };
 		AAD1E4071C74718A00C17CA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD1E4061C74718A00C17CA0 /* AppDelegate.swift */; };
 		AAD1E4091C74718A00C17CA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD1E4081C74718A00C17CA0 /* ViewController.swift */; };
 		AAD1E40C1C74718A00C17CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD1E40A1C74718A00C17CA0 /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		AA569AB61C9042C40024A72F /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnimationViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		AAA007A11CBE496B0023DD16 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		AAA007A31CBE4A3D0023DD16 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		AAA007A51CBE4C5F0023DD16 /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		AAD1E4031C74718A00C17CA0 /* CardView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD1E4061C74718A00C17CA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAD1E4081C74718A00C17CA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 				AAE1BD781C77249000172BB1 /* OverlayView.swift */,
 				AAD1E43C1C74754200C17CA0 /* CardView.xib */,
 				AA569AB61C9042C40024A72F /* AnimationViewController.swift */,
+				AAA007A11CBE496B0023DD16 /* Task.swift */,
+				AAA007A31CBE4A3D0023DD16 /* CustomCell.swift */,
+				AAA007A51CBE4C5F0023DD16 /* TaskViewController.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -273,6 +282,9 @@
 				AAE1BD791C77249000172BB1 /* OverlayView.swift in Sources */,
 				AA569AB71C9042C40024A72F /* AnimationViewController.swift in Sources */,
 				AAD1E43B1C7474F500C17CA0 /* DraggableCardView.swift in Sources */,
+				AAA007A21CBE496B0023DD16 /* Task.swift in Sources */,
+				AAA007A61CBE4C5F0023DD16 /* TaskViewController.swift in Sources */,
+				AAA007A41CBE4A3D0023DD16 /* CustomCell.swift in Sources */,
 				AAD1E4071C74718A00C17CA0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

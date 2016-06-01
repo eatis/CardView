@@ -23,9 +23,9 @@ class CustomCell: UITableViewCell {
     
     func setCell(task: Task) {
         self.taskName.text = task.taskName as String
-        let now = NSDate()
+        // let now = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        self.date.text = formatter.stringFromDate(now)
+        self.date.text = formatter.stringFromDate(task.date)
     }
 }

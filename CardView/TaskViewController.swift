@@ -7,20 +7,41 @@
 //
 
 import UIKit
+import RealmSwift
 
-class TaskViewController: UITableViewController {
-
-    
-    var tasks:[Task] = [Task]()
+class TaskViewController: UITableViewController, UITextFieldDelegate {
+    // var todos = try! Realm().objects(Task)
+    var selectedTask:Task?
+    var todos: Results<Task> {
+        get {
+            let config = Realm.Configuration(
+                schemaVersion: 3,
+                
+                migrationBlock: { migration, oldSchemaVersion in
+                    if (oldSchemaVersion < 1) {
+                    }
+            })
+            
+            Realm.Configuration.defaultConfiguration = config
+            
+            return try! Realm().objects(Task)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.setupTasks()
+        // self.deleteTasks()
+        
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,19 +49,12 @@ class TaskViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setupTasks() {
-        let now = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let string = formatter.stringFromDate(now)
+    func deleteTasks() {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.deleteAll()
+        }
         
-        let task1 = Task(taskName: "掃除", date: string)
-        let task2 = Task(taskName: "皿洗い", date: string)
-        let task3 = Task(taskName: "昼寝", date: string)
-        
-        tasks.append(task1)
-        tasks.append(task2)
-        tasks.append(task3)
     }
     
     
@@ -54,7 +68,7 @@ class TaskViewController: UITableViewController {
     
     // セクションの行数
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return todos.count
     }
     
     
@@ -62,10 +76,32 @@ class TaskViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         
         let cell: CustomCell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! CustomCell
-        print(cell)
         
-        cell.setCell(tasks[indexPath.row])
+        print(todos[indexPath.row].taskName as NSString)
+        
+        cell.setCell(todos[indexPath.row] as Task)
         
         return cell
     }
+    
+    // Cell が選択された場合
+    override func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+        // [indexPath.row] から画像名を探し、UImage を設定
+        // selectedImage = UIImage(named:"\(imgArray[indexPath.row])")
+        selectedTask = todos[indexPath.row] as Task
+            // SubViewController へ遷移するために Segue を呼び出す
+        performSegueWithIdentifier("toDetailViewController",sender: nil)
+        
+    }
+    
+    // Segue 準備
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "toDetailViewController") {
+            let detailVC: DetailViewController = (segue.destinationViewController as? DetailViewController)!
+            // SubViewController のselectedImgに選択された画像を設定する
+            detailVC.testVar = selectedTask
+        }
+    }
+    
+    
 }

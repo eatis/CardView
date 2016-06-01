@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Task : NSObject {
-    var taskName:NSString
-    var date:NSString
+class Task : Object {
+    // dynamic var id = 0
+    dynamic var taskName = ""
+    dynamic var yomi = ""
+    dynamic var emoji = ""
+    dynamic var date = NSDate()
     
-    init(taskName: String, date: String){
-        self.taskName = taskName
-        self.date = date
-    }
+//    override static func primaryKey() -> String? {
+//        return "id"
+//    }
 }

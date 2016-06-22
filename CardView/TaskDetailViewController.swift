@@ -42,7 +42,6 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     func createTask() {
-        let now = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         // let stringDate = formatter.stringFromDate(now)

@@ -11,22 +11,26 @@ import RealmSwift
 
 class TaskViewController: UITableViewController, UITextFieldDelegate {
     // var todos = try! Realm().objects(Task)
+    
+    let uiRealm = try! Realm()
     var selectedTask:Task?
-    var todos: Results<Task> {
-        get {
-            let config = Realm.Configuration(
-                schemaVersion: 3,
-                
-                migrationBlock: { migration, oldSchemaVersion in
-                    if (oldSchemaVersion < 1) {
-                    }
-            })
-            
-            Realm.Configuration.defaultConfiguration = config
-            
-            return try! Realm().objects(Task)
-        }
-    }
+//    var todos: Results<Task> {
+//        get {
+//            let config = Realm.Configuration(
+//                schemaVersion: 3,
+//                
+//                migrationBlock: { migration, oldSchemaVersion in
+//                    if (oldSchemaVersion < 1) {
+//                    }
+//            })
+//            
+//            Realm.Configuration.defaultConfiguration = config
+//            
+//            return uiRealm.objects(Task)
+//        }
+//    }
+    var todos: Results<Task>!
+    var isEditingMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +38,14 @@ class TaskViewController: UITableViewController, UITextFieldDelegate {
         
         // self.deleteTasks()
         
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        readTasksAndUpdateUI()
         tableView.reloadData()
     }
     
@@ -103,5 +108,28 @@ class TaskViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "Delete") { (deleteAction, indexPath) -> Void in
+            let todoToBeDeleted = self.todos[indexPath.row]
+            
+            try! self.uiRealm.write({ () -> Void in
+                self.uiRealm.delete(todoToBeDeleted)
+                self.readTasksAndUpdateUI()
+            })
+
+        }
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Edit") { (editAction, indexPath) -> Void in
+            
+            self.selectedTask = self.todos[indexPath.row] as Task
+            self.performSegueWithIdentifier("toDetailViewController", sender: nil)
+        }
+        return [deleteAction, editAction]
+    }
+    
+    func readTasksAndUpdateUI() {
+        todos = uiRealm.objects(Task)
+        self.tableView.setEditing(false, animated: true)
+        self.tableView.reloadData()
+    }
     
 }
